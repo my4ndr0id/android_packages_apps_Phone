@@ -1040,4 +1040,13 @@ public class MSimPhoneInterfaceManager extends ITelephonyMSim.Stub {
         int subscription = getPreferredDataSubscription();
         getPhone(subscription).setDataReadinessChecks(checkConnectivity, checkSubscription, tryDataCalls);
     }
+
+   /**
+    * {@hide}
+    * Return if the current subscription is active or not.
+    */
+   public boolean isSubActive(int subscription) {
+       SubscriptionManager subManager = SubscriptionManager.getInstance();
+       return subManager.isSubActive(subscription);
+   }
 }
